@@ -7,3 +7,43 @@
 %%%%% NAME:
 %
 % Add your interaction below
+
+% crypt1.pl
+
+?- Start is cputime, solve([A, C, H, I, O, R, S, T, W]), End is cputime, Time is End - Start.
+Start = 590.42
+A = 2
+C = 1
+H = 9
+I = 7
+O = 8
+R = 4
+S = 3
+T = 0
+W = 6
+End = 667.97
+Time = 77.550000000000068
+Yes (77.55s cpu, solution 1, maybe more)
+
+% crypt2.pl
+% Explanation
+% T and O are the letters that the majority depend on, so they are guessed early
+% The main letters of CHAIRS use each other with the combination of T, O and W. 
+% These terms are calculated as they comment
+% WARTS/STRAW letters are already computed by this PROPOSITIONS
+% Verify that all letters have unique numbers at the end
+
+?- Start is cputime, solve([A, C, H, I, O, R, S, T, W]), End is cputime, Time is End - Start.
+Start = 670.06
+A = 2
+C = 1
+H = 9
+I = 7
+O = 8
+R = 4
+S = 3
+T = 0
+W = 6
+End = 670.06
+Time = 0.0
+Yes (0.00s cpu, solution 1, maybe more)
