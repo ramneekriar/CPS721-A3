@@ -16,6 +16,7 @@
 
 person(1). person(2). person(3). person(4). person(5).
 
+is_not(X, Y) :- 
 
 %%%%% HELPER PREDICATES
 % Put any helper predicates here (leave empty if you do not have any
@@ -41,28 +42,28 @@ solve([Cow, Farmer, Jump, Excuse]) :-
     Six = Headache,
 
     % Clue 3
-    Ford = not(Maybelle),
-    Ford = not(Elise),
+    not Maybelle = Ford,
+    not Elise = Ford,
     Ford = Two,
 
     % Clue 4
-    Headache = not(Bossie),
-    Headache = not(Flossie),
-    Headache = not(Elise),
+    not Bossie = Headache,
+    not Flossie = Headache,
+    not Elise = Headache,
 
     % Clue 5
-    Flossie = not(Smith),
-    Flossie = not(Nelson),
-    Flossie = not(Ford),
+    not Smith = Flossie,
+    not Nelson = Flossie,
+    not Ford = Flossie,
 
     % Clue 6
-    Jones = not(Maybelle),
-    Jones = not(Flossie),
-    Gravity = not(Maybelle),
-    Gravity = not(Flossie),
+    not Maybelle = Jones,
+    not Flossie = Jones,
+    not Maybelle = Gravity,
+    not Flossie = Gravity,
 
     % Clue 7
-    Nelson = not(MoonMoved),
+    not MoonMoved = Nelson,
 
     % Clue 8
     Slipped = Five,
@@ -77,10 +78,10 @@ solve([Cow, Farmer, Jump, Excuse]) :-
     Jones = Daisy,
 
     % Clue 12
-    MoonMoved = not(Six),
-    MoonMoved = not(Five),
-    MoonMoved = not(Two),
-    MoonMoved = not(Gravity),
+    not Six = MoonMoved,
+    not Five = MoonMoved,
+    not Two = MoonMoved,
+    not Gravity = MoonMoved,
 
     all_diff(Cow),
     all_diff(Farmer),

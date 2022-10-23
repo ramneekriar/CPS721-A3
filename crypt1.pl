@@ -61,16 +61,16 @@ solve([S,T,R,A,W,O,C,H,I]) :-
 %%%%% RULE: print_solution ( ListOfVars )
 %  Add rules the prints your solution in a readable format
 % MAKE SURE IT TAKES A LIST AS INPUT, SUCH THAT THAT LIST IS CONTAINS ALL VARIABLES
-print_solution([S,T,R,A,W,O,C,H,I]) :-
-    solve([S,T,R,A,W,O,C,I]),
-    nl, write("S = "), write(S),
-    nl, write("T = "), write(T),
-    nl, write("R = "), write(R),
-    nl, write("A = "), write(A),
-    nl, write("W = "), write(W),
-    nl, write("O = "), write(O),
-    nl, write("C = "), write(C),
-    nl, write("H = "), write(I).
+
+print_solution :-
+    solve([S,T,R,A,W,O,C,H,I]),
+    write('    '), write(S), write(T), write(R), write(A), write(W), nl,
+    write('X      '), write(T), write(O), nl,
+    write('    '), write('______'), nl,
+    write('    '), write(W), write(A), write(R), write(T), write(S), nl,
+    write('   '), write(S), write(T), write(R), write(A), write(W), nl,
+    write('+  '), write('________'), nl,
+    write('   '), write(C), write(H), write(A), write(I), write(R), write(S), nl.
 
 
 %%%%% END
