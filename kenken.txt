@@ -2,8 +2,22 @@
 % If you only have 2 group members, leave the last space blank
 %
 %%%%%
-%%%%% NAME: 
-%%%%% NAME:
-%%%%% NAME:
+%%%%% NAME: Karanvir Heer
+%%%%% NAME: Ramneek Riar
+%%%%% NAME: Shruti Sharma
 %
 % Add your interaction below
+
+?- print_solution(ListOfVars).
+ListOfVars = ListOfVars
+Yes (0.01s cpu, solution 1, maybe more)
+
+ ---------------
+| 2 | 3 | 4 | 1 |
+|---------------|
+| 3 | 2 | 1 | 4 |
+|---------------|
+| 1 | 4 | 3 | 2 |
+|---------------|
+| 4 | 1 | 2 | 3 |
+ ---------------
