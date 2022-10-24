@@ -2,8 +2,50 @@
 % If you only have 2 group members, leave the last space blank
 %
 %%%%%
-%%%%% NAME: 
-%%%%% NAME:
-%%%%% NAME:
+%%%%% NAME: Karanvir Heer
+%%%%% NAME: Ramneek Riar
+%%%%% NAME: Shruti Sharma
 %
 % Add your interaction below
+
+?- Start is cputime, print_solution([ [[Art_D1, Art_H1], [Art_D2, Art_H2], [Art_D3, Art_H3]],
+                   [[Math_D1, Math_H1], [Math_D2, Math_H2], [Math_D3, Math_H3]],
+                   [[CS_D1, CS_H1], [CS_D2, CS_H2], [CS_D3, CS_H3]],
+                   [[Dance_D1, Dance_H1], [Dance_D2, Dance_H2], [Dance_D3, Dance_H3]]]), 
+                   End is cputime, Time is End - Start.
+
+Start = 39.67
+Art_D1 = mon
+Art_H1 = 10
+Art_D2 = wed
+Art_H2 = 10
+Art_D3 = fri
+Art_H3 = 10
+Math_D1 = mon
+Math_H1 = 2
+Math_D2 = wed
+Math_H2 = 2
+Math_D3 = fri
+Math_H3 = 11
+CS_D1 = mon
+CS_H1 = 12
+CS_D2 = wed
+CS_H2 = 12
+CS_D3 = wed
+CS_H3 = 3
+Dance_D1 = fri
+Dance_H1 = 1
+Dance_D2 = fri
+Dance_H2 = 2
+Dance_D3 = fri
+Dance_H3 = 3
+End = 39.68
+Time = 0.00999999999999801
+Yes (0.01s cpu, solution 1, maybe more)
+No (0.03s cpu)
+
+Printed Output:
+Art: mon at 10:00, wed at 10:00, fri at 10:00
+Math: mon at 2:00, wed at 2:00, fri at 11:00
+Computer Science: mon at 12:00, wed at 12:00, wed at 3:00
+Dance: fri at 1:00 to 4:00
