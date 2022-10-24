@@ -1,0 +1,119 @@
+?- Start is cputime, solve(List), End is cputime, Time is End - Start.
+Start = 256.69
+List = [flossie, daisy, elsie, maybelle, bossie, flossie, daisy, maybelle, elsie, bossie, elsie, bossie, daisy, flossie, maybelle]
+End = 257.39
+Time = 0.69999999999998863
+Yes (0.70s cpu, solution 1, maybe more)
+
+
+?- print_solution.
+Yes (0.70s cpu, solution 1, maybe more)
+Yes (0.75s cpu, solution 2, maybe more)
+Yes (0.79s cpu, solution 3, maybe more)
+Yes (0.85s cpu, solution 4, maybe more)
+No (11.52s cpu)
+
+-------------------
+Cow is Flossie
+The owner is Brown.
+The cow jumped 8 feet high.
+The excuse is Moon Moved.
+-------------------
+Cow is Elsie
+The owner is Smith.
+The cow jumped 5 feet high.
+The excuse is Slipped.
+-------------------
+Cow is Daisy
+The owner is Jones.
+The cow jumped 7 feet high.
+The excuse is Sore Hoof.
+-------------------
+Cow is Bossie
+The owner is Ford.
+The cow jumped 2 feet high.
+The excuse is Gravity.
+-------------------
+Cow is Maybelle
+The owner is Nelson.
+The cow jumped 6 feet high.
+The excuse is Headache.
+-------------------
+-------------------
+Cow is Flossie
+The owner is Brown.
+The cow jumped 8 feet high.
+The excuse is Moon Moved.
+-------------------
+Cow is Elsie
+The owner is Smith.
+The cow jumped 5 feet high.
+The excuse is Slipped.
+-------------------
+Cow is Daisy
+The owner is Jones.
+The cow jumped 6 feet high.
+The excuse is Headache.
+-------------------
+Cow is Bossie
+The owner is Ford.
+The cow jumped 2 feet high.
+The excuse is Gravity.
+-------------------
+Cow is Maybelle
+The owner is Nelson.
+The cow jumped 7 feet high.
+The excuse is Sore Hoof.
+-------------------
+-------------------
+Cow is Flossie
+The owner is Brown.
+The cow jumped 7 feet high.
+The excuse is Moon Moved.
+-------------------
+Cow is Elsie
+The owner is Smith.
+The cow jumped 5 feet high.
+The excuse is Slipped.
+-------------------
+Cow is Daisy
+The owner is Jones.
+The cow jumped 8 feet high.
+The excuse is Sore Hoof.
+-------------------
+Cow is Bossie
+The owner is Ford.
+The cow jumped 2 feet high.
+The excuse is Gravity.
+-------------------
+Cow is Maybelle
+The owner is Nelson.
+The cow jumped 6 feet high.
+The excuse is Headache.
+-------------------
+-------------------
+Cow is Flossie
+The owner is Brown.
+The cow jumped 7 feet high.
+The excuse is Moon Moved.
+-------------------
+Cow is Elsie
+The owner is Smith.
+The cow jumped 5 feet high.
+The excuse is Slipped.
+-------------------
+Cow is Daisy
+The owner is Jones.
+The cow jumped 6 feet high.
+The excuse is Headache.
+-------------------
+Cow is Bossie
+The owner is Ford.
+The cow jumped 2 feet high.
+The excuse is Gravity.
+-------------------
+Cow is Maybelle
+The owner is Nelson.
+The cow jumped 8 feet high.
+The excuse is Sore Hoof.
+-------------------

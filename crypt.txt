@@ -10,20 +10,22 @@
 
 % crypt1.pl
 
-?- Start is cputime, solve([A, C, H, I, O, R, S, T, W]), End is cputime, Time is End - Start.
-Start = 590.42
-A = 2
-C = 1
-H = 9
-I = 7
-O = 8
-R = 4
-S = 3
-T = 0
-W = 6
-End = 667.97
-Time = 77.550000000000068
-Yes (77.55s cpu, solution 1, maybe more)
+?- Start is cputime, solve(List), End is cputime, Time is End - Start.
+Start = 257.69
+List = [2, 1, 9, 7, 8, 4, 3, 0, 6]
+End = 330.27
+Time = 72.579999999999984
+Yes (72.58s cpu, solution 1, maybe more)
+
+?- print_solution.
+
+    21978
+X      14
+    ______
+    87912
+   21978
++  ________
+   307692
 
 % crypt2.pl
 % Explanation
@@ -33,17 +35,19 @@ Yes (77.55s cpu, solution 1, maybe more)
 % WARTS/STRAW letters are already computed by this PROPOSITIONS
 % Verify that all letters have unique numbers at the end
 
-?- Start is cputime, solve([A, C, H, I, O, R, S, T, W]), End is cputime, Time is End - Start.
-Start = 670.06
-A = 2
-C = 1
-H = 9
-I = 7
-O = 8
-R = 4
-S = 3
-T = 0
-W = 6
-End = 670.06
+?- Start is cputime, solve(List), End is cputime, Time is End - Start.
+Start = 330.44
+List = [2, 1, 9, 7, 8, 4, 3, 0, 6]
+End = 330.44
 Time = 0.0
 Yes (0.00s cpu, solution 1, maybe more)
+
+?- print_solution.
+
+    21978
+X      14
+    ______
+    87912
+   21978
++  ________
+   307692

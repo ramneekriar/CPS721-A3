@@ -14,145 +14,151 @@
 %%%%% ATOMIC
 % Put any atomic statements needed here
 
-person(1). person(2). person(3). person(4). person(5).
+person(flossie). person(elsie). person(daisy). person(bossie). person(maybelle).
 
 %%%%% HELPER PREDICATES
 % Put any helper predicates here (leave empty if you do not have any
 
 all_diff([]).
-all_diff([H|T]) :- person(H), all_diff(T), not member(H, T).
-
-higher(1, 2). higher(2, 3). higher(3, 4). higher(4, 5).
-
-five_feet(4).
-third_highest(3).
-lowest(5).
-
-jumped_higher(X, Y) :- higher(X, Y).
-jumped_higher(X, Y) :- higher(Y, X).
+all_diff([H|T]) :- all_diff(T), not member(H, T).
 
 %%%%% RULE: solve( ListOfVars )
 % Add the rules defining your solve program
 % MAKE SURE IT TAKES A LIST AS INPUT, SUCH THAT THAT LIST IS CONTAINS ALL VARIABLES
 
-solve([Cow, Farmer, Jump, Excuse]) :-
+solve([Brown, Jones, Smith, Nelson, Ford, Eight, Seven, Six, Five, Two, Slipped, Gravity, SoreHoof, MoonMoved, Headache]) :-
 
-    Cow = [Flossie, Elsie, Daisy, Bossie, Maybelle],
-    all_diff(Cow),
+    % Reasoning
+    % As a person(X) value is assigned to each variable, we immediately check if
+    % the value that was assigned was unique to each Farmer, Jump and Excuse.
+    % This is done using the helper function all_diff(List) which checks if every
+    % value in the list is unique.
+    % By doing this, we mitigate the amount of backtracking needed when incorrectly
+    % assigning values to each variable.
     
-    Farmer = [Brown, Jones, Smith, Nelson, Ford],
-    all_diff(Farmer),
+    person(Brown), person(Jones), person(Smith), person(Nelson), person(Ford),
+    all_diff([Brown, Jones, Smith, Nelson, Ford]),
 
-    Jump = [Eight, Seven, Six, Five, Two],
-    all_diff(Jump),
+    person(Eight), person(Seven), person(Six), person(Five), person(Two),
+    all_diff([Eight, Seven, Six, Five, Two]),
 
-    Excuse = [Slipped, Gravity, SoreHoof, MoonMoved, Headache],
-    all_diff(Excuse),
+    person(Slipped), person(Gravity), person(SoreHoof), person(MoonMoved), person(Headache),
+    all_diff([Slipped, Gravity, SoreHoof, MoonMoved, Headache]),
 
     % Clue 1
     Smith = Slipped,
 
     % Clue 2
-    third_highest(Headache),
+    Headache = Six,
 
     % Clue 3
-    not Maybelle = Ford,
-    not Elsie = Ford,
-    lowest(Ford),
+    Ford = Two,
+    all_diff([maybelle, Ford, elsie]),
+    all_diff([maybelle, Two, elsie]),
 
     % Clue 4
-    not Bossie = Headache,
-    not Flossie = Headache,
-    not Elsie = Headache,
+    all_diff([bossie, flossie, elsie, Headache]),
 
     % Clue 5
-    not Smith = Flossie,
-    not Nelson = Flossie,
-    not Ford = Flossie,
+    all_diff([flossie, Smith, Nelson, Ford]),
 
     % Clue 6
-    not Maybelle = Jones,
-    not Flossie = Jones,
-    not Maybelle = Gravity,
-    not Flossie = Gravity,
+    all_diff([maybelle, flossie, Jones]),
+    all_diff([maybelle, flossie, Gravity]),
 
     % Clue 7
     not MoonMoved = Nelson,
 
     % Clue 8
-    five_feet(Slipped),
+    Slipped = Five,
 
     % Clue 9
     Brown = MoonMoved,
 
     % Clue 10
-    Nelson = Maybelle,
+    all_diff([Nelson, flossie, elsie, daisy, bossie]),
 
     % Clue 11
-    Jones = Daisy,
+    all_diff([Jones, flossie, elsie, bossie, maybelle]),
 
     % Clue 12
-    jumped_higher(MoonMoved, Headache),
-    jumped_higher(Headache, Gravity).
+    not Headache = MoonMoved,
+    not Headache = Gravity,
+    not Headache = Two,
+
+    not Gravity = MoonMoved,
+    not Gravity = Headache,
+    not Gravity = Seven,
+    not Gravity = Eight.
 
 %%%%% RULE: print_solution ( ListOfVars )
 %  Add rules the prints your solution in a readable format
 % MAKE SURE IT TAKES A LIST AS INPUT, SUCH THAT THAT LIST IS CONTAINS ALL VARIABLES
 
 print_solution :-
-    solve([[Flossie, Elsie, Daisy, Bossie, Maybelle], [Brown, Jones, Smith, Nelson, Ford], [Eight, Seven, Six, Five, Two], [Slipped, Gravity, SoreHoof, MoonMoved, Headache]]).
+    solve([Brown, Jones, Smith, Nelson, Ford, Eight, Seven, Six, Five, Two, Slipped, Gravity, SoreHoof, MoonMoved, Headache]),
 
-    write('Cow is Flossie'),
-    ownerMatch([Flossie, A1]),
-    jumpMatch([Flossie, B1]),
-    excuseMatch([Flossie, C1]),
+    Height = [Eight, Seven, Six, Five, Two],
+    Farmer = [Brown, Jones, Smith, Nelson, Ford],
+    Excuse = [Slipped, Gravity, SoreHoof, MoonMoved, Headache],
 
-    write('Cow is Elsie'),
-    ownerMatch([Elsie, A2]),
-    jumpMatch([Elsie, B2]),
-    excuseMatch([Elsie, C2]),
+    write('-------------------'), nl,
+    write('Cow is Flossie'), nl,
+    ownerMatch([flossie, A1], Farmer),
+    jumpMatch([flossie, B1], Height),
+    excuseMatch([flossie, C1], Excuse),
+    write('-------------------'), nl,
+
+    write('Cow is Elsie'), nl,
+    ownerMatch([elsie, A2], Farmer),
+    jumpMatch([elsie, B2], Height),
+    excuseMatch([elsie, C2], Excuse),
+    write('-------------------'), nl,
     
-    write('Cow is Flossie'),
-    ownerMatch([Daisy, A3]),
-    jumpMatch([Daisy, B3]),
-    excuseMatch([Daisy, C3]),
+    write('Cow is Daisy'), nl,
+    ownerMatch([daisy, A3], Farmer),
+    jumpMatch([daisy, B3], Height),
+    excuseMatch([daisy, C3], Excuse),
+    write('-------------------'), nl,
 
-    write('Cow is Flossie'),
-    ownerMatch([Bossie, A4]),
-    jumpMatch([Bossie, B4]),
-    excuseMatch([Bossie, C4]),
+    write('Cow is Bossie'), nl,
+    ownerMatch([bossie, A4], Farmer),
+    jumpMatch([bossie, B4], Height),
+    excuseMatch([bossie, C4], Excuse),
+    write('-------------------'), nl,
 
-    write('Cow is Flossie'),
-    ownerMatch([Maybelle, A5]),
-    jumpMatch([Maybelle, B5]),
-    excuseMatch([Maybelle, C5]).
+    write('Cow is Maybelle'), nl,
+    ownerMatch([maybelle, A5], Farmer),
+    jumpMatch([maybelle, B5], Height),
+    excuseMatch([maybelle, C5], Excuse),
+    write('-------------------'), nl.
 
-jumpMatch([CowNum, JumpName]) :-
-    member([CowNum, JumpName],
+jumpMatch([Cow, JumpName], [Eight, Seven, Six, Five, Two]) :-
+    member([Cow, JumpName],
     [[Eight, '8'],
     [Seven, '7'],
     [Six, '6'],
     [Five, '5'],
     [Two, '2']]),
-    write('The cow jumped '), write(JumpName), write(' feet high.').
+    write('The cow jumped '), write(JumpName), write(' feet high.'), nl.
 
-excuseMatch([CowNum, ExcuseName]) :-
-    member([CowNum, ExcuseName],
+excuseMatch([Cow, ExcuseName], [Slipped, Gravity, SoreHoof, MoonMoved, Headache]) :-
+    member([Cow, ExcuseName],
     [[Slipped, 'Slipped'],
     [Gravity, 'Gravity'],
     [SoreHoof, 'Sore Hoof'],
     [MoonMoved, 'Moon Moved'],
     [Headache, 'Headache']]),
-    write('The excuse is '), write(ExcuseName), write('.').
+    write('The excuse is '), write(ExcuseName), write('.'), nl.
 
-ownerMatch([CowNum, OwnerName]) :-
-    member([CowNum, OwnerName],
+ownerMatch([Cow, OwnerName], [Brown, Jones, Smith, Nelson, Ford]) :-
+    member([Cow, OwnerName],
     [[Brown, 'Brown'],
     [Jones, 'Jones'],
     [Smith, 'Smith'],
     [Nelson, 'Nelson'],
     [Ford, 'Ford']]),
-    write('The owner is '), write(OwnerName), write('.').
+    write('The owner is '), write(OwnerName), write('.'), nl.
 
 % pmatch(X, OwnerName, X, CowName X, HeightName, X, ExcuseName) :-
 %    nl, write(OwnerName), write('is the owner of '),
